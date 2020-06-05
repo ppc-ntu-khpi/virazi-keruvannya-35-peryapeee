@@ -1,36 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
-/**
- *
- * @author Инна
- */
-public class Exercise {
+import java.util.Arrays;
 
+public class Exercise {
     /**
-  * Checks if a given number is an Armstrong number
-  * @param number 
-  * @return Arm 
-  */   
-public static boolean Calculate(int number) {
-    int count=0;             
-    int num=number;           
-    int Arm=0;                
-    int[] digits = new int[5];
-    //array filling and number counting in a number
-    while(number>0){
-         digits[count]=number%10;
-         number=number/10;
-         count++;
-     }
-        for(int i=0;i<count;i++){
-        Arm+=Math.pow(digits[i], count);
+     *The function takes an array, sorts it in ascending order. Then, with the algorithm, I look for a real second number in magnitude, that is, in the array {1, 2, 2}, the second largest will be 1.
+     * @param arr input array
+     * @return second largest number
+     */
+    public static int Calculate(int[] arr){
+        Arrays.sort(arr);
+
+        int i = 1;
+        while(arr[arr.length - (i+1)] == arr[arr.length - i]){
+            i++;
+            if(arr[arr.length - (i+1)] != arr[arr.length - i]){
+                return arr[arr.length - (i+1)];
+            }
+        }
+        return arr[arr.length - 2];
     }
-        //check if the number is Armstrong's number and return the result
-    return num==Arm;
-}
 }

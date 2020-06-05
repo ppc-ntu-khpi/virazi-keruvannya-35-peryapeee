@@ -1,22 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package test;
-import static domain.Exercise.Calculate;
-/**
- *
- * @author Инна
- */
+
+import domain.Exercise;
+
+import java.util.Scanner;
+
 public class TestResult {
+
     public static void main(String[] args) {
-     int numb = 153;
-     if(Calculate(numb)){
-         System.out.println("Число "+numb+" является числом Армстронга");
-     }  
-     else{
-         System.out.println("Число "+numb+" не является числом Армстронга");
-     }  
-}
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите величину массива: ");
+        int N = in.nextInt();
+        int[] arr = new int[N];
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Введите " + (i+1) + " элемент массива: ");
+            arr[i] = in.nextInt();
+        }
+        System.out.println("Второе по величене число = "+Exercise.Calculate(arr));
+    }
 }
